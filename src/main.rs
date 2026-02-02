@@ -1,88 +1,93 @@
-use eframe::egui;
+use eframe::egui::{self, text};
 use egui::FontFamily;
 use std::sync::Arc;
 
 
+
 fn main() -> eframe::Result<()> {
-    // custom window settings
-    let options = eframe::NativeOptions {
-        viewport: egui::viewport::ViewportBuilder::default()
-            .with_inner_size([400.0, 300.0]),
+    let options = eframe::NativeOptions{
+        viewport: eframe::egui::ViewportBuilder {
+            maximized: Some(true),
             ..Default::default()
+        },
+        ..Default::default()
     };
     
     // execute eframe application
     eframe::run_native(
-        "My egui App",
+        "kantan-memo-kun",
         options,
-        Box::new(|cc| {
-            // font setting
-            setup_custom_fonts(&cc.egui_ctx);
-            Ok(Box::new(MyApp::default()))
-        }),
+        Box::new(|_cc| Ok(Box::new(MyApp::default()))),
     )
 }
 
-// フォント設定用の関数
-fn setup_custom_fonts(ctx: &egui::Context) {
-    // フォント設定を取得
-    let mut fonts = egui::FontDefinitions::default();
-    
-    // 日本語フォント（可変ウェイト）を追加
-    fonts.font_data.insert(
-        "noto_sans_jp".to_owned(),
-        egui::FontData::from_static(
-            include_bytes!("assets/NotoSansJP-VariableFont_wght.ttf")
-        ).into(),
-    );
-    
-    // フォントファミリーに追加
-    fonts
-        .families
-        .entry(FontFamily::Proportional)
-        .or_default()
-        .insert(0, "noto_sans_jp".to_owned()); // 一番優先度高く追加
-    
-    // モノスペースフォントにも日本語フォントを追加
-    fonts
-        .families
-        .entry(FontFamily::Monospace)
-        .or_default()
-        .push("noto_sans_jp".to_owned());
-    
-    // フォント設定を適用
-    ctx.set_fonts(fonts);
-}
-
-// アプリケーションの状態を保持する構造体
 struct MyApp {
-    name: String,
-    age: u32,
+    memos: Vec<String>,
+    input: String,
 }
 
 impl Default for MyApp {
     fn default() -> Self {
         Self {
-            name: "山田太郎".to_owned(),
-            age: 42,
+            memos: Vec::new(),
+            input: String::new(),
         }
     }
 }
 
-// アプリケーションの描画とロジックを実装
 impl eframe::App for MyApp {
     fn update(&mut self, ctx: &egui::Context, _frame: &mut eframe::Frame) {
-        egui::CentralPanel::default().show(ctx, |ui| {
-            ui.heading("My egui Application");
-            ui.horizontal(|ui| {
-                ui.label("名前: ");
-                ui.text_edit_singleline(&mut self.name);
-            });
-            ui.add(egui::Slider::new(&mut self.age, 0..=120).text("年齢"));
-            if ui.button("年齢+1").clicked() {
-                self.age += 1;
-            }
-            ui.label(format!("こんにちは、{}さん({}歳)", self.name, self.age));
+        // top panel
+        egui::TopBottomPanel::top("top_panel").show(ctx, |ui| {
+            ui.heading("Memo App");
         });
+
+        // main panel
+        egui::CentralPanel::default().show(ctx, |ui| {
+            ui.heading("Memo Editor");
+            ui.horizontal(|ui| {
+            // input field and Add button
+            ui.text_edit_multiline(&mut self.input);
+                if ui.button("Add").clicked() {
+                    if !self.input.is_empty() {
+                        self.memos.push(self.input.clone());
+                        self.input.clear();
+                    }
+                }
+            });
+            ui.separator();
+            egui::ScrollArea::vertical().show(ui, |ui| {
+                for memo in &self.memos {
+                    ui.label(memo);
+                }
+            });
+            ui.separator();
+
+            // メモ一覧
+            for i in 0..self.memos.len() {
+                ui.horizontal(|ui| {
+                    ui.label(format!("• {}", self.memos[i]));
+
+                    // Edit ボタン
+                    if ui.button("Edit").clicked() {
+                        // 編集処理 (簡易版)
+                        self.input = self.memos[i].clone();
+                        self.memos.remove(i);
+                    }
+
+                    // Delete ボタン
+                    if ui.button("Delete").clicked() {
+                        self.memos.remove(i);
+                    }
+                });
+            }
+        });
+
+        // left side panel
+        egui::SidePanel::left("left_panel").show(ctx, |ui| {
+            ui.label("Welcome to Kantan Memo-kun!");
+        });
+
     }
 }
+
