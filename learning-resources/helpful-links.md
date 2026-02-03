@@ -4,6 +4,8 @@
 [thebook](https://doc.rust-lang.org/book/) 
 It's my programing life begining
 
+[separated_module](https://qiita.com/TakedaTakumi/items/7936a19979e46fc1b780)
+[asking_module](https://qiita.com/k-yaina60/items/388fa6ef30070af4844f)
 ## Git & Github
 [git 入門講座](https://youtu.be/LDOR5HfI_sQ?si=nFEuCKY_jot5fpBT)
 easy, careful, I could understand Git/Github
