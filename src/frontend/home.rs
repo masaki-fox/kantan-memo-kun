@@ -1,6 +1,6 @@
 use eframe::egui;
 
-pub fn draw(ctx: &egui::Context, state: &mut super::UiRoot) {
+pub fn draw(ctx: &egui::Context, state: &mut super::MemoApp) {
     egui::CentralPanel::default().show(ctx, |ui| {
             ui.heading("Memo Editor");
             ui.horizontal(|ui| {

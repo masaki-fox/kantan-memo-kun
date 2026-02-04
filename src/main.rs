@@ -13,7 +13,7 @@ fn main() -> eframe::Result<()> {
     eframe::run_native(
         "kantan-memo-kun",
         options,
-        Box::new(|_cc| Ok(Box::new(frontend::UiRoot::default()))),
+        Box::new(|_cc| Ok(Box::new(frontend::MemoApp::default()))),
     )
 }
 
