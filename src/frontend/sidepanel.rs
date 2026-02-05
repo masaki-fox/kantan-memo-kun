@@ -1,4 +1,5 @@
 use eframe::egui;
+use egui::{Frame, Margin, Color32};
 
 
 pub fn draw(ctx: &egui::Context, app: &mut super::MemoApp) {
@@ -14,29 +15,22 @@ pub fn draw(ctx: &egui::Context, app: &mut super::MemoApp) {
     let max_width = 300.0;
     let width = anim * max_width;
     
-    match app.state.show_sidebar {
-        // do animate, but skip drawing
-        false => return,
-        true => {
-            egui::SidePanel::left("side_panel")
-                .default_width(width)
-                .min_width(0.0)
-                .max_width(max_width)
-                .show(ctx, |ui| {
-                    // 中身のフェード（opacity を anim に乗せる）
-                    ui.set_min_width(width);
-                    ui.set_max_width(width);
+    if !app.state.show_sidebar{return;}
 
-                    ui.group(|ui| {
-                        ui.set_opacity(anim);  // ここでフェード
-                        ui.vertical(|ui| {
-                            ui.label("メニュー");
-                            if ui.button("All Notes").clicked() {}
-                            if ui.button("Tags").clicked() {}
-                        });
-                    });
-                }
-            );
+    egui::SidePanel::left("side_panel")
+        .resizable(false)
+        .frame(
+            Frame::default()
+                .inner_margin(Margin::same(10))
+                .fill(Color32::from_gray(50)) 
+        )
+        .show(ctx, |ui| {
+            ui.set_width(width);
+            
+            // draw side panel contents
+            ui.label("This is inner margin");
+            
+            // until here
         }
-    };
+    );
 }

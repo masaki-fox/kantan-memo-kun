@@ -21,6 +21,8 @@ impl Default for MemoApp {
 
 impl eframe::App for MemoApp {
     fn update(&mut self, ctx: &eframe::egui::Context, _frame: &mut eframe::Frame) {
+        ctx.set_pixels_per_point(1.5); // contents scall setting
+
         // draw panels
         header::draw(ctx, self);
         sidepanel::draw(ctx, self);

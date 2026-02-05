@@ -1,7 +1,8 @@
 use eframe::egui;
 
 pub fn draw(ctx: &egui::Context, state: &mut super::MemoApp) {
-    egui::CentralPanel::default().show(ctx, |ui| {
+    egui::CentralPanel::default()
+        .show(ctx, |ui| {
             ui.heading("Memo Editor");
             ui.horizontal(|ui| {
             // input field and Add button
