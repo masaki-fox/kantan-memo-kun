@@ -14,15 +14,8 @@ pub fn draw(ctx: &egui::Context, state: &mut super::MemoApp) {
                     }
                 }
             });
-            ui.separator();
             egui::ScrollArea::vertical().show(ui, |ui| {
-                for memo in &state.memos {
-                    ui.label(memo);
-                }
-            });
-            ui.separator();
-
-            // メモ一覧
+            // view memos
             for i in 0..state.memos.len() {
                 ui.horizontal(|ui| {
                     ui.label(format!("• {}", state.memos[i]));
@@ -40,5 +33,8 @@ pub fn draw(ctx: &egui::Context, state: &mut super::MemoApp) {
                     }
                 });
             }
+            });
+
+
         });
 }
