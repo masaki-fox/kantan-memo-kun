@@ -1,18 +1,11 @@
-use eframe::egui;
+use eframe::{egui, egui_glow::painter};
 
 pub fn draw(ctx: &egui::Context, state: &mut super::MemoApp) {
     egui::CentralPanel::default()
         .show(ctx, |ui| {
-            ui.heading("Memo Editor");
-            ui.horizontal(|ui| {
-            // input field and Add button
-            ui.text_edit_multiline(&mut state.input);
-                if ui.button("Add").clicked() {
-                    if !state.input.is_empty() {
-                        state.memos.push(state.input.clone());
-                        state.input.clear();
-                    }
-                }
+            ui.vertical_centered(|ui| {
+                // input field and Add button
+                ui.text_edit_multiline(&mut state.input);
             });
             egui::ScrollArea::vertical().show(ui, |ui| {
             // view memos

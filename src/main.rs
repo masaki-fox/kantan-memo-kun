@@ -1,4 +1,5 @@
 mod frontend;
+mod background;
 
 fn main() -> eframe::Result<()> {
     let options = eframe::NativeOptions{
