@@ -1,5 +1,6 @@
 use eframe::{egui::{self, InnerResponse, Response}, egui_glow::painter};
-use crate::background::db_operator::{self, save_memo_to_db};
+use crate::background::db_operator::{save_memo_to_db};
+
 
 pub fn draw(ctx: &egui::Context, state: &mut super::MemoApp) {
     egui::CentralPanel::default()

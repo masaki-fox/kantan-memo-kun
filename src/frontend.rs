@@ -1,33 +1,6 @@
-mod home;
-mod header;
-mod sidepanel;
-mod uistate;
+pub mod home;
+pub mod header;
+pub mod sidepanel;
+pub mod uistate;
 
-pub struct MemoApp {
-    memos: Vec<String>,
-    input: String,
-    state: uistate::UIState,
-}
-
-impl Default for MemoApp {
-    fn default() -> Self {
-        Self {
-            memos: Vec::new(),
-            input: String::new(),
-            state: uistate::UIState::default(),
-        }
-    }
-}
-
-impl eframe::App for MemoApp {
-    fn update(&mut self, ctx: &eframe::egui::Context, _frame: &mut eframe::Frame) {
-        ctx.set_pixels_per_point(1.5); // contents scall setting
-
-        // draw panels
-        header::draw(ctx, self);
-        sidepanel::draw(ctx, self);
-       
-        // call last to cover full remaining area
-        home::draw(ctx, self);
-    }
-}
+use super::MemoApp;
