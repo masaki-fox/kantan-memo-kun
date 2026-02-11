@@ -1,5 +1,8 @@
 # Reference Links
 
+# Docs
+[dotenvy](https://docs.rs/dotenvy/latest/dotenvy/)
+
 ## Rust language
 [thebook](https://doc.rust-lang.org/book/) 
 It's my programing life begining

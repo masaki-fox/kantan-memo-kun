@@ -1,0 +1,83 @@
+[33mcommit c0964ef6e0a147303fda0042f5659fa4705c7a1d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Mon Feb 9 17:29:21 2026 +0900
+
+    move MemoApp to main
+
+[33mcommit 1c555f3557bc01e93379a2ef6a632f2c98b317c9[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Mon Feb 9 15:12:35 2026 +0900
+
+    add feature that save textline to db
+
+[33mcommit 95a69df9f532a671af8049795f495e12045cf02e[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Sun Feb 8 22:27:50 2026 +0900
+
+    add sample file to bin
+
+[33mcommit 39dff669a9172551061c7d3c39e6f668ae6b893a[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Sun Feb 8 18:42:06 2026 +0900
+
+    try rusqlite
+
+[33mcommit 9e768e5aa259d3addaa9b45852822044090cf6dc[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Sat Feb 7 19:09:37 2026 +0900
+
+    start rusqlite
+
+[33mcommit a554f68a5ab2c92bddb2cc52151bdd05f6eb3503[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Fri Feb 6 10:53:03 2026 +0900
+
+    ajustment to side panel animation
+
+[33mcommit ecd51c2e5bbf2bdbd897c49fd44bffd426c0036b[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Thu Feb 5 22:38:21 2026 +0900
+
+    try inner margin for frame
+
+[33mcommit 4580b733f7aada67a7fc3a072de4d4e4f1ef8e0b[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Wed Feb 4 12:22:27 2026 +0900
+
+    add animated sidebar
+
+[33mcommit bb9e2125f31d73a11b33d1956f745ef5738dba34[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Tue Feb 3 11:36:05 2026 +0900
+
+    separates modules
+
+[33mcommit 9f43c22db1a68bae5fd81455906301ae0eb56f41[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Mon Feb 2 20:38:33 2026 +0900
+
+    add separated area panels
+
+[33mcommit cc40ee7eebfe8034ce9fa3176fd5f28e3f7a88c5[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Mon Feb 2 10:09:15 2026 +0900
+
+    testplay sample egui, and add font asset
+
+[33mcommit 2b54aeff9b6f5249a681530fc7dfbe8234796b73[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Sun Feb 1 22:58:24 2026 +0900
+
+    add learning-resources
+
+[33mcommit adcc657c5cfc407bbffd89d8de4bcd4a59485283[m
+Author: masaki <masaki.saver@gmail.com>
+Date:   Sun Feb 1 20:56:18 2026 +0900
+
+    create cargo project
+
+[33mcommit 358fb55b651d886f225b6646c2620d29a4a48bff[m
+Author: masaki-fox <masaki.saver@gmail.com>
+Date:   Fri Jan 30 08:50:55 2026 +0900
+
+    Initial commit
